@@ -2,25 +2,32 @@ package com.example.mvpswapi;
 
 import androidx.annotation.NonNull;
 
+import com.example.mvpswapi.data.SwapiApi;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter {
 
     private final MainContract.View view;
+    private final SwapiApi api;
 
-    public MainPresenter(@NonNull MainContract.View view) {
-
+    public MainPresenter (
+        @NonNull final MainContract.View view,
+        @NonNull final SwapiApi swapiApi
+    ){
         this.view = view;
+        this.api = swapiApi;
     }
+
 
 
     @Override
     public void getMovies() {
-        boolean success = false;
-        List<SWMovie> movieList = new ArrayList<>();
+        List<SWMovie> movieList = api.getSwapiStuff();
+        final boolean success = movieList != null && !movieList.isEmpty();
 
-        if (success){
+        if (success) {
             view.showMovies(movieList);
         } else {
             view.showError();
@@ -29,7 +36,7 @@ public class MainPresenter implements MainContract.Presenter {
 //        view.showError();
 //        view.showMovies();
         //TODO : retrofit call
-        //TODO : if successfull show movies
+        //TODO : if successful show movies
 
     }
 }
