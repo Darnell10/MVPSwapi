@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         textView = findViewById(R.id.movie_title);
         textView.setText(titles);
 
-        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();
         //TODO: recycleView Stuff
 
     }
 
     @Override
     public void showError() {
-        Toast.makeText(this,"Error",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Error",Toast.LENGTH_LONG).show();
         //TODO: show/hide view stuff
     }
 }

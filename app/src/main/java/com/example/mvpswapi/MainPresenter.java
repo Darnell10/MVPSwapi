@@ -17,10 +17,7 @@ public class MainPresenter implements MainContract.Presenter {
     private final MainContract.View view;
     private final SwapiApi api;
 
-    public MainPresenter(
-            @NonNull final MainContract.View view,
-            @NonNull final SwapiApi swapiApi
-    ) {
+    public MainPresenter(@NonNull final MainContract.View view, @NonNull final SwapiApi swapiApi) {
         this.view = view;
         this.api = swapiApi;
     }
