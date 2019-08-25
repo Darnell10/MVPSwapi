@@ -13,6 +13,11 @@ public class SWMovie {
 
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+
     public static SWMovie EMPTY(){
         return new SWMovie("");
     }
