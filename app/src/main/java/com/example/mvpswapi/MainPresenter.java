@@ -1,5 +1,7 @@
 package com.example.mvpswapi;
 
+import android.annotation.SuppressLint;
+
 import androidx.annotation.NonNull;
 
 import com.example.mvpswapi.data.SWMovie;
@@ -7,15 +9,18 @@ import com.example.mvpswapi.networking.SwapiApi;
 
 import java.util.List;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 public class MainPresenter implements MainContract.Presenter {
 
     private final MainContract.View view;
     private final SwapiApi api;
 
-    public MainPresenter (
-        @NonNull final MainContract.View view,
-        @NonNull final SwapiApi swapiApi
-    ){
+    public MainPresenter(
+            @NonNull final MainContract.View view,
+            @NonNull final SwapiApi swapiApi
+    ) {
         this.view = view;
         this.api = swapiApi;
     }
@@ -24,19 +29,25 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void getMovies() {
-        List<SWMovie> movieList = api.getSwapiStuff();
-        final boolean success = movieList != null && !movieList.isEmpty();
+        api.getSWMovies()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(response -> {
+                    final List<SWMovie> movieList = response.getMovies();
+                    final boolean success = movieList != null && !movieList.isEmpty();
 
-        if (success) {
-            view.showMovies(movieList);
-        } else {
-            view.showError();
-        }
+                    if (success) {
+                        view.showMovies(movieList);
+                    } else {
+                        view.showError();
+                    }
+                }, error -> {
+                    view.showError();
+                });
 
-//        view.showError();
-//        view.showMovies();
-        //TODO : retrofit call
-        //TODO : if successful show movies
 
     }
+
+
 }
+

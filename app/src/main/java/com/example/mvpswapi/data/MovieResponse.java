@@ -10,7 +10,7 @@ public class MovieResponse {
         this.results = results;
     }
 
-    public  List<SWMovie> getMovies(){
+    public List<SWMovie> getMovies() {
         return results;
     }
 }
