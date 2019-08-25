@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.mvpswapi.data.SWMovie;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {

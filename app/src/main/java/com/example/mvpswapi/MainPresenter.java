@@ -2,9 +2,9 @@ package com.example.mvpswapi;
 
 import androidx.annotation.NonNull;
 
-import com.example.mvpswapi.data.SwapiApi;
+import com.example.mvpswapi.data.SWMovie;
+import com.example.mvpswapi.networking.SwapiApi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainPresenter implements MainContract.Presenter {

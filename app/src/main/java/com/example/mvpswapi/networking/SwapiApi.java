@@ -1,6 +1,6 @@
-package com.example.mvpswapi.data;
+package com.example.mvpswapi.networking;
 
-import com.example.mvpswapi.SWMovie;
+import com.example.mvpswapi.data.SWMovie;
 
 import java.util.List;
 
