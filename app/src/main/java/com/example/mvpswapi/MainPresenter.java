@@ -27,6 +27,7 @@ public class MainPresenter implements MainContract.Presenter {
 
 
 
+    @SuppressLint("CheckResult")
     @Override
     public void getMovies() {
         api.getSWMovies()
