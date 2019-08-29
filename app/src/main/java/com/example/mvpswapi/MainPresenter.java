@@ -3,9 +3,12 @@ package com.example.mvpswapi;
 import android.annotation.SuppressLint;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mvpswapi.data.SWMovie;
 import com.example.mvpswapi.networking.SwapiApi;
+import com.example.mvpswapi.recyclerview.MovieAdapter;
 
 import java.util.List;
 
@@ -13,6 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainPresenter implements MainContract.Presenter {
+
 
     private final MainContract.View view;
     private final SwapiApi api;
@@ -45,6 +49,9 @@ public class MainPresenter implements MainContract.Presenter {
 
 
     }
+
+
+
 
 
 }

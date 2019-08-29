@@ -16,7 +16,7 @@ public class Movie_Holder extends RecyclerView.ViewHolder {
     public Movie_Holder(@NonNull View itemView) {
         super(itemView);
 
-        movieTitle = itemView.findViewById(R.id.movie_title);
+        movieTitle = itemView.findViewById(R.id.sw_movie_text);
     }
 
     public void onBind(SWMovie swMovie){
